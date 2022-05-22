@@ -15,15 +15,15 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(cors())
 
-app.post("/getUrl", validateURL, (req, res) => {
+app.post("/api/getUrl", validateURL, (req, res) => {
     generateQRCode(req, res);
 });
 
-app.post('/shortenUrl', validateURL, (req, res) => {
+app.post('/api/shortenUrl', validateURL, (req, res) => {
     urlShortener(req, res);
 });
 
-app.get("/:shortUrl", (req, res) => {
+app.get("/api/:shortUrl", (req, res) => {
     redirectToURL(req, res);
 })
 
